@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<import resource="SpringConfig.xml"/>
+    <context:component-scan base-package="com.bdqn,cn.itrip"/>
+   <!--  视图解析器
+      作用：把逻辑视图名解析为 真正的物理路径
+      request:text1      真正物理地址=/Manage+逻辑视图名(t1).jsp
+    -->
+   <bean  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	  <property name="prefix" value="/Manage/"/>
+	  <property name="suffix" value=".jsp"/>
+</bean>
+    <!--<mvc:resources mapping="/css/**" location="/css/" />
+    <mvc:resources mapping="/js/**" location="/js/" />-->
+ 	<mvc:annotation-driven></mvc:annotation-driven>
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+   		 <property name="maxUploadSize" value="5000000"/>
+   		 <property name="defaultEncoding" value="UTF-8"/>
+</bean>
+<!--<mvc:resources mapping="statics/uploadfiles/**" location="/statics/uploadfiles/" />
+<mvc:resources mapping="/*.html" location="/" />-->
+<!--<mvc:interceptors>
+      
+       &lt;!&ndash; <mvc:interceptor>
+            <mvc:mapping path="/AppInfo/*"/>  
+            &lt;!&ndash; 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 &ndash;&gt;
+            <bean class="com.bdqn.filter.LoginFilter"/>
+        </mvc:interceptor>&ndash;&gt;
+      </mvc:interceptors>-->
+      
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">  
+      
+        <property name="exceptionMappings">  
+            <props>  
+                <prop key="java.lang.RuntimeException">error</prop>   
+            </props>  
+        </property>  
+	</bean>
+      
+</beans>

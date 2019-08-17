@@ -1,0 +1,4 @@
+127.0.0.1 - - [15/Aug/2019:16:34:22 +0800] "POST /auth/api/registerbyphone HTTP/1.0" 200 299 http-bio-8081-exec-1 2379
+127.0.0.1 - - [15/Aug/2019:16:34:46 +0800] "PUT /auth/api/validatephone?user=18067405967&code=1168 HTTP/1.0" 200 70 http-bio-8081-exec-2 315
+127.0.0.1 - - [15/Aug/2019:16:41:39 +0800] "POST /auth/api/registerbyphone HTTP/1.0" 200 296 http-bio-8081-exec-1 3390
+127.0.0.1 - - [15/Aug/2019:16:42:09 +0800] "PUT /auth/api/validatephone?user=18067405967&code=1168 HTTP/1.0" 200 70 http-bio-8081-exec-2 280
